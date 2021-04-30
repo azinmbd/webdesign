@@ -1,0 +1,85 @@
+@import "_mixins.scss";
+@import "colors.scss";
+body {
+  background-color: $Black;
+  color: white;
+  a {
+    transition: all 200ms;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .btn,
+  .btn-dark {
+    &:focus {
+      box-shadow: none !important;
+    }
+  }
+  tbody {
+    tr {
+      transition: all 200ms;
+      .Delete-btn,
+      .Edit-btn {
+        visibility: hidden;
+        &:hover{
+          color: white;
+        }
+      }
+      .Edit-btn {
+        color: $green;
+      }
+      .Delete-btn {
+        color: gray;
+      }
+      &:hover {
+        background-color: $blueHover !important;
+        cursor: pointer;
+        .Delete-btn,
+        .Edit-btn {
+          visibility: visible;
+          
+        }
+      }
+    }
+  }
+}
+.navbar {
+  background-color: $lightBlack;
+  box-shadow: 0 3px 4px #1d232b;
+  a {
+    font-size: 18px;
+    color: white;
+    &:hover {
+      color: $blue;
+    }
+  }
+  .items {
+    display: flex;
+    justify-content: flex-start;
+    @include Lphones() {
+      width: 40% !important;
+    }
+    @include phones() {
+      width: 30% !important;
+    }
+  }
+}
+.btn-blue {
+  background-color: $blue;
+  transition: all 200ms;
+  color: white;
+  &:hover {
+    color: white;
+    background-color: #6058d1 !important;
+  }
+}
+.home-section{
+  span{
+    display: block;
+    width: 100%;
+    height: 3px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #7971ea;
+  }
+}
