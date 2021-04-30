@@ -9,4 +9,5 @@ export default combineReducers({
     { key: "FetchListReducer", storage, whitelist: ["data"] },
     FetchListReducer
   ),
+
 });

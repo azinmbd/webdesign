@@ -1,27 +1,27 @@
 import React from "react";
 
 const Table = (props) => {
-  console.log(props);
+  console.log(props.searchList);
   const renderList = () => {
-    return props.List.map((item) => {
-      return (
-        <tr>
-          <th scope="row">{item.count}</th>
-          <td>{item._id}</td>
-          <td>{item.name}</td>
-          <td>{item.cordinationX}</td>
-          <td>{item.cordinationY}</td>
-          <td>
-            <a type="button" className="Edit-btn btn btn-link">
-              edit
-            </a>
-            <a type="button" className="Delete-btn btn btn-link">
-              delete
-            </a>
-          </td>
-        </tr>
-      );
-    });
+      return props.searchList.map((item) => {
+        return (
+          <tr key={item._id}>
+            <th scope="row">{item.count}</th>
+            <td>{item.name}</td>
+            <td>{item.cordinationX}</td>
+            <td>{item.cordinationY}</td>
+            <td className="table-btns">
+              <a type="button" className="Edit-btn btn btn-link">
+                edit
+              </a>
+              <a type="button" className="Delete-btn btn btn-link">
+                delete
+              </a>
+            </td>
+          </tr>
+        );
+      });
+    
   };
   return (
     <div className="container">
@@ -32,10 +32,9 @@ const Table = (props) => {
             <th scope="col">Id</th>
             <th scope="col">Name</th>
             <th scope="col">CordinationX</th>
-            <th scope="col">CordinationY</th>
           </tr>
         </thead>
-        <tbody>{renderList()}</tbody>
+        <tbody>{props.searchList.length==0 ?<tr><td colSpan="5">Nothing was found try typing another name!</td></tr> : renderList()}</tbody>
       </table>
     </div>
   );

@@ -1,25 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { fetchList } from "../store/actions";
 import Table from "../component/Table";
+import Search from "../component/Search";
 
 const Home = () => {
   const dispatch = useDispatch();
   const List = useSelector((state) => state.FetchListReducer.data);
-  console.log(List);
+  const [searchList, setSearchList] = useState([]);
   useEffect(() => {
     dispatch(fetchList());
   }, [dispatch]);
+  const setList = (results) => {
+    setSearchList(results);
+  };
 
   return (
-    <section className="home-section">
+    <section className="home-section mt-4">
       <div className="container">
-        <h1>Items List </h1>
+        <div className="d-flex justify-content-between">
+          <h1>Items List </h1>
+          <Search List={List} setList={setList} />
+        </div>
         <span></span>
       </div>
 
-      <Table List={List} />
+      <Table List={List} searchList={searchList} />
     </section>
   );
 };
