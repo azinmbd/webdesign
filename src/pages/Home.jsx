@@ -23,7 +23,7 @@ const Home = () => {
           <h1>Items List </h1>
           <Search List={List} setList={setList} />
         </div>
-        <span></span>
+        <span className="line"></span>
       </div>
 
       <Table List={List} searchList={searchList} />

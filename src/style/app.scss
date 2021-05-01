@@ -69,25 +69,57 @@ body {
   transition: all 200ms;
   color: white;
   &:hover {
-    color: white;
+    color: white !important;
     background-color: #6058d1 !important;
   }
 }
+.line {
+  display: block;
+  width: 100%;
+  height: 3px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: #7971ea;
+}
 .home-section {
-  span {
-    display: block;
-    width: 100%;
-    height: 3px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    background-color: #7971ea;
-  }
   table {
     max-height: 70%;
     overflow-y: auto;
     text-align: center !important;
     .table-btns {
       width: 15% !important;
+    }
+  }
+}
+// login page
+
+.login-bg {
+  form {
+    div {
+      position: relative;
+      img {
+        position: absolute;
+        top: 10px;
+        right: 0;
+      }
+    }
+    min-height: 350px;
+    background-image: url("../assets/pattern.png");
+
+    padding: 30px;
+    background-position-y: 24%;
+    background-repeat: no-repeat;
+    background-size: 179%;
+    background-color: #393e46;
+    border-radius: 10px;
+    box-shadow: 0 5px 40px #171b22;
+    label {
+      font-size: 20px;
+    }
+    h4 {
+      color: orangered;
+      text-align: center;
+      margin-top: 10px;
     }
   }
 }

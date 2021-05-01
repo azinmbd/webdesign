@@ -2,18 +2,38 @@ import axios from "axios";
 
 export const fetchList = () => async (dispatch) => {
   const response = await axios.get(
-    "http://qiot.eu-4.evennode.com/api/components/",
-    {
-      headers: {
-        // "Access-Control-Allow-Origin": " http://localhost:3000",
-        // "Access-Control-Allow-Credentials": "true",
-        // "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-        // "Access-Control-Allow-Headers": "Origin, Content-Type, Accept",
-      },
-    }
+    "http://qiot.eu-4.evennode.com/api/components/"
   );
   dispatch({
     type: "FETCH_LIST",
     payload: response.data,
+  });
+};
+export const LoginReq = ({ name, password }) => async (dispatch) => {
+  const response = await axios
+    .post("http://qiot.eu-4.evennode.com/api/auth", {
+      name,
+      password,
+    })
+    // .then(() => {
+    //   if (response.data) {
+        dispatch({
+          type: "LOGIN-SUCCESS",
+          payload: response.data,
+        });
+    //   }
+    // });
+  // .catch((err) =>{
+  // if (err) {
+  //   dispatch({
+  //     type: "LOGIN-FAIL",
+  //     payload: {status:400, info:"Invalid informat"},
+  //   });
+  // }});
+};
+export const LogoutReq = () => async (dispatch) => {
+  dispatch({
+    type: "DELETE-TOKEN",
+    payload: [],
   });
 };

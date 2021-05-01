@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 const Search = (props) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const handleChange = (event) => {

@@ -1,9 +1,8 @@
 import { Switch, BrowserRouter, Route, Redirect } from "react-router-dom";
 
-import Menu from "./component/menu";
+import Menu from "./component/Menu";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
-import MusicList from "./pages/MusicList";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import "./style/app.scss";
@@ -18,9 +17,7 @@ const App = () => {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/musiclist">
-              <MusicList />
-            </Route>
+        
             <Route path="/login">
               <Login />
             </Route>

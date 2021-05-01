@@ -1,7 +1,9 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 
 const Table = (props) => {
-  console.log(props.searchList);
+  const token = useSelector((state) => state.LoginReqReducer.data);
   const renderList = () => {
       return props.searchList.map((item) => {
         return (
@@ -10,14 +12,14 @@ const Table = (props) => {
             <td>{item.name}</td>
             <td>{item.cordinationX}</td>
             <td>{item.cordinationY}</td>
-            <td className="table-btns">
+           {typeof(token)==="string"?  <td className="table-btns">
               <a type="button" className="Edit-btn btn btn-link">
                 edit
               </a>
               <a type="button" className="Delete-btn btn btn-link">
                 delete
               </a>
-            </td>
+            </td>: ""}
           </tr>
         );
       });
