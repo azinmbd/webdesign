@@ -15,21 +15,20 @@ export const LoginReq = ({ name, password }) => async (dispatch) => {
       name,
       password,
     })
-    // .then(() => {
-    //   if (response.data) {
+    .then((response) => {
+      if (response.status === 200) {
         dispatch({
           type: "LOGIN-SUCCESS",
-          payload: response.data,
+          payload: response,
         });
-    //   }
-    // });
-  // .catch((err) =>{
-  // if (err) {
-  //   dispatch({
-  //     type: "LOGIN-FAIL",
-  //     payload: {status:400, info:"Invalid informat"},
-  //   });
-  // }});
+      }
+    })
+    .catch((err) => {
+      dispatch({
+        type: "LOGIN-FAIL",
+        payload: 400,
+      });
+    });
 };
 export const LogoutReq = () => async (dispatch) => {
   dispatch({

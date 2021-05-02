@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { LoginReq } from "../store/actions";
@@ -8,8 +8,10 @@ const Login = (props) => {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const token = useSelector((state) => state.LoginReqReducer.data);
-  console.log(token);
+  const token = useSelector((state) => state.LoginReqReducer.data.data);
+  const status = useSelector((state) => state.LoginReqReducer.data.status);
+  const [newStatus, setStatus] = useState("");
+
 
   const nameChange = (event) => {
     setName(event.target.value);
@@ -19,18 +21,20 @@ const Login = (props) => {
     setPassword(event.target.value);
   };
   const handleSubmit = (event) => {
+    setStatus(status);
+
     event.preventDefault();
     dispatch(LoginReq({ name, password }));
-    if (typeof token === "string") {
-      props.history.push("/");
-    }else{
-        renderError()
-    }
-};
-const renderError = (text) => {
 
-      
+      if (status === 200) {
+        setTimeout(() => {
+          props.history.push("/");
+        }, 2000);
+      } else {
+        setStatus(400);
+      }
   };
+
   return (
     <section className="login-bg container-fluid mt-5">
       <form className="col-lg-6 col-sm-12 m-auto" onSubmit={handleSubmit}>
@@ -64,7 +68,14 @@ const renderError = (text) => {
         <div className="form-group mt-4 mb-0">
           <input type="submit" className="btn btn-blue w-100 " />
         </div>
-      <div>{renderError()}</div>
+        <div>
+          {newStatus === 200 ? <h5>loged in successfully</h5> : ""}
+          {newStatus === 400 ? (
+            <h4>Name or password might be Invalid!!</h4>
+          ) : (
+            ""
+          )}
+        </div>
       </form>
     </section>
   );

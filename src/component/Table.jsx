@@ -19,7 +19,7 @@ const Table = (props) => {
               <a type="button" className="Delete-btn btn btn-link">
                 delete
               </a>
-            </td>: ""}
+            </td>: <td></td>}
           </tr>
         );
       });

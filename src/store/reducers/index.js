@@ -14,5 +14,4 @@ export default combineReducers({
     { key: "LoginReqReducer", storage, whitelist: ["data"] },
     LoginReqReducer
   ),
-
 });

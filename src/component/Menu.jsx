@@ -7,7 +7,7 @@ import logo from "../assets/logo.svg";
 
 const Menu = () => {
   const dispatch = useDispatch();
-  const token = useSelector((state) => state.LoginReqReducer.data);
+  const token = useSelector((state) => state.LoginReqReducer.data.data);
   const handleLogout = () => {
     dispatch(LogoutReq());
   };
@@ -39,7 +39,7 @@ const Menu = () => {
         </div>
       </nav>
     );
-  } if(token.length==0) {
+  }else{
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-lightblack">
         <div className="container-fluid">
