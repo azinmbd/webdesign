@@ -6,8 +6,8 @@ import axios from "axios";
 const Signup = (props) => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const [status, setStatus] = useState("");
-
+  const [status, setStatus] = useState(0);
+  console.log(status);
   const nameChange = (event) => {
     setName(event.target.value);
   };
@@ -28,10 +28,10 @@ const Signup = (props) => {
           setStatus(response.status);
           setTimeout(() => {
             props.history.push("/");
-          }, 2000);
+          }, 1000);
         }
       })
-      .catch((err) => setStatus("400"));
+      .catch((err) => setStatus(400));
   };
 
   return (

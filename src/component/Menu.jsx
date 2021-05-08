@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { LogoutReq } from "../store/actions";
 
 import logo from "../assets/logo.svg";
+import user from "../assets/user.svg";
 
 const Menu = () => {
   const dispatch = useDispatch();
@@ -32,7 +33,8 @@ const Menu = () => {
           </div>
 
           <div>
-            <NavLink to="/" className="btn btn-blue" onClick={handleLogout}>
+            <NavLink to="/" className="btn btn-dark" onClick={handleLogout}>
+              <img className="mr-3 "src={user} alt=""/>
               logout
             </NavLink>
           </div>

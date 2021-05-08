@@ -9,10 +9,10 @@ export default function LoginReqReducer(state = INITIAL_STATE, action) {
         ...state,
         data: action.payload,
       };
-      case "LOGIN-FAIL":
+    case "LOGIN-FAIL":
       return {
         ...state,
-        data: action.payload,
+        data: { status: action.payload },
       };
     case "DELETE-TOKEN":
       return {

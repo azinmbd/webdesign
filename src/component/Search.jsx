@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 
 const Search = (props) => {
   // const dispatch = useDispatch();
@@ -21,10 +21,10 @@ const Search = (props) => {
   }, [searchTerm]);
 
   return (
-    <div>
-      <form className="form-inline my-2 my-lg-0" onSubmit={handleSubmit}>
+    <div className="col-lg-6 col-sm-12">
+      <form className="form-inline mt-2 mb-sm-4" onSubmit={handleSubmit}>
         <input
-          className="form-control mr-sm-2"
+          className="form-control mr-sm-2 w-75"
           type="search"
           placeholder="Type name ..."
           aria-label="Search"
