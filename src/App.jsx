@@ -5,6 +5,8 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Edit from "./pages/Edit";
+import Add from "./pages/Add";
 import "./style/app.scss";
 import React from "react";
 const App = () => {
@@ -23,6 +25,12 @@ const App = () => {
             </Route>
             <Route path="/signup">
               <Signup />
+            </Route>
+            <Route path="/edit">
+              <Edit />
+            </Route>
+            <Route path="/add">
+              <Add />
             </Route>
 
             <Route path="*">

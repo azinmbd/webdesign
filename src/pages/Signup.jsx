@@ -7,7 +7,6 @@ const Signup = (props) => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState(0);
-  console.log(status);
   const nameChange = (event) => {
     setName(event.target.value);
   };

@@ -1,10 +1,7 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import {  useSelector } from "react-redux";
 
-import { fetchList } from "../store/actions";
 const Table = (props) => {
-  const dispatch = useDispatch();
-  console.log(props);
   const token = useSelector((state) => state.LoginReqReducer.data.data);
 
   const renderList = () => {
@@ -20,7 +17,7 @@ const Table = (props) => {
               <td className="table-btns">
                 <a
                   className="Edit-btn btn btn-link"
-                  onClick={() => props.handleEdit(item._id)}
+                  onClick={() => props.handleEdit(item)}
                 >
                   edit
                 </a>
@@ -49,7 +46,7 @@ const Table = (props) => {
               <td className="table-btns">
                 <a
                   className="Edit-btn btn btn-link"
-                  onClick={() => props.handleEdit(item._id)}
+                  onClick={() => props.handleEdit( item)}
                 >
                   edit
                 </a>
@@ -81,7 +78,7 @@ const Table = (props) => {
           </tr>
         </thead>
         <tbody>
-          {props.searchList.length == 0 ? (
+          {props.searchList.length === 0 ? (
             <tr>
               <td colSpan="5">Nothing was found try typing another name!</td>
             </tr>

@@ -24,7 +24,7 @@ const Menu = () => {
           <div className="items w-75">
             <NavLink
               activeStyle={{
-                color: "#7971ea",
+                // color: "#7971ea",
               }}
               to="/"
             >
@@ -51,7 +51,7 @@ const Menu = () => {
           <div className="items w-75">
             <NavLink
               activeStyle={{
-                color: "#7971ea",
+                // color: "#7971ea",
               }}
               to="/"
             >

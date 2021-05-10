@@ -3,6 +3,13 @@
 body {
   background-color: $Black;
   color: white;
+  .table thead th {
+    text-align: center;
+  }
+  .table td,
+  .table th {
+    text-align: center;
+  }
   a {
     transition: all 200ms;
     &:hover {
@@ -16,7 +23,6 @@ body {
     }
   }
   tbody {
-    text-align: center !important;
     tr {
       transition: all 200ms;
       .Delete-btn,
@@ -92,7 +98,6 @@ body {
   table {
     max-height: 70%;
     overflow-y: auto;
-    text-align: center !important;
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
@@ -157,68 +162,50 @@ body {
     label {
       font-size: 20px;
     }
-    h4 {
-      color: $orange;
-      text-align: center;
-      margin-top: 10px;
+  }
+}
+form {
+  .form-title {
+    span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: #7971ea;
     }
-    h5 {
-      color: $green;
-      text-align: center;
-      margin-top: 10px;
-    }
+  }
+  h4 {
+    color: $orange;
+    text-align: center;
+    margin-top: 10px;
+  }
+  h5 {
+    color: $green;
+    text-align: center;
+    margin-top: 10px;
   }
 }
 //modal style
 .modal-content {
   background-color: $Black;
 }
-/* [Object] Modal
- * =============================== */
-#target-content {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 200ms;
-}
-#target-content:target {
-  pointer-events: all;
-  opacity: 1;
-}
-#target-content #target-inner {
-  position: absolute;
-  display: block;
-  padding: 48px;
-  line-height: 1.8;
-  width: 70%;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
-  background:$Black;
-  color: white;
-}
-#target-content #target-inner h2 {
-  margin-top: 0;
-}
-#target-content #target-inner code {
-  font-weight: bold;
-}
-#target-content a.close {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: #34495e;
-  opacity: 0.5;
-  transition: opacity 200ms;
-}
-#target-content a.close:hover {
-  opacity: 0.4;
+
+//edit page
+.edit-page {
+  .table td,
+  .table th {
+    padding: 0 !important;
+  }
+  tbody {
+    tr {
+      &:hover {
+        cursor: auto;
+      }
+    }
+  }
+  .form-title {
+    img {
+      top: 8px;
+      right: 0;
+    }
+  }
 }
